@@ -37,7 +37,7 @@ node(label: 'test') {
       GIT_LOCAL_BRANCH = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
 
       stage('Run Tests') {
-        sh 'test.sh'
+        sh "test.sh ${params.TEST_PARAM}"
       }
 
     } catch (err) {
