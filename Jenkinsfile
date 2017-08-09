@@ -46,7 +46,7 @@ node(label: 'test') {
     } finally {
       switch(currentBuild.result) {
         case "FAILURE":
-          echo "${env.JOB_NAME} ${env.BUILD_NUMBER}: SUCCESS on *${GIT_LOCAL_BRANCH}* (<${env.BUILD_URL}|Open>)\n${GIT_LOG ? '```' + GIT_LOG + '```\n' : ''}```${caughtError}```"
+          echo "${env.JOB_NAME} ${env.BUILD_NUMBER}: FAIL on *${GIT_LOCAL_BRANCH}* (<${env.BUILD_URL}|Open>)\n${GIT_LOG ? '```' + GIT_LOG + '```\n' : ''}```${caughtError}```"
           if (caughtError) {
            throw caughtError; // rethrow so that the build fails
           }
