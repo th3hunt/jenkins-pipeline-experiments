@@ -3,7 +3,7 @@ String GIT_LOCAL_BRANCH;
 
 def caughtError;
 
-node {
+node(label: 'test') {
   currentBuild.result = "SUCCESS"
 
   ansiColor('xterm') {
