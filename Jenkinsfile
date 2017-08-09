@@ -13,10 +13,10 @@ node(label: 'test') {
           $class: "GitSCM",
           refspec: "+refs/heads/master:refs/remotes/origin/master +refs/heads/develop:refs/remotes/origin/develop +refs/heads/feature*:refs/remotes/origin/feature** +refs/heads/release*:refs/remotes/origin/release** +refs/tags/*:refs/remotes/origin/tags/*",
           branches: [
-            [name: "refs/heads/master"],
-            [name: "refs/heads/develop"],
-            [name: "refs/heads/feature**"],
-            [name: "refs/heads/release**"],
+            [name: "*/master"],
+            [name: "*/develop"],
+            [name: "*/feature**"],
+            [name: "*/release**"],
             [name: "*/tags/*"]
           ],
           extensions: [
