@@ -8,7 +8,7 @@ node(label: 'test') {
 
   ansiColor('xterm') {
     try {
-      echo "E on master"
+      echo "F on master"
 
       stage('Checkout') {
         checkout scm
@@ -37,12 +37,12 @@ node(label: 'test') {
            throw caughtError; // rethrow so that the build fails
           }
           break;
-        default:  
+        default:
           echo "${env.JOB_NAME} ${env.BUILD_NUMBER}: PASS on *${GIT_LOCAL_BRANCH}* (<${env.BUILD_URL}|Open>)\n```${GIT_LOG}```"
       }
       if (caughtError) {
         throw caughtError; // rethrow so that the build fails
-      }  
+      }
     }
   }
 }
