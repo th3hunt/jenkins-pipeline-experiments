@@ -5,7 +5,7 @@
 
 echo "Running tests..."
 
-if [ $1 == 0 ]; then
+if [[ $1 == 0 ]]; then
   echo "Success"
   exit 0
 else
