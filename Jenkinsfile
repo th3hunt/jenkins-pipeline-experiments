@@ -11,29 +11,7 @@ node(label: 'test') {
       echo "B on develop"
 
       stage('Checkout') {
-        checkout([
-          $class: "GitSCM",
-          refspec: "+refs/heads/master:refs/remotes/origin/master +refs/heads/develop:refs/remotes/origin/develop +refs/heads/feature*:refs/remotes/origin/feature** +refs/heads/release*:refs/remotes/origin/release** +refs/tags/*:refs/remotes/origin/tags/*",
-          branches: [
-            [name: "*/master"],
-            [name: "*/develop"],
-            [name: "*/feature**"],
-            [name: "*/release**"],
-            [name: "*/tags/*"]
-          ],
-          extensions: [
-            [$class: "CloneOption", honorRefspec: true, noTags: false, shallow: true,  depth: 3, timeout: 20],
-            [$class: 'LocalBranch', localBranch: '**'],
-            [$class: 'CleanBeforeCheckout']
-          ],
-          submoduleCfg: [],
-          userRemoteConfigs: [
-            [
-              credentialsId: "pavlakis-github-token",
-              url: "https://github.com/th3hunt/jenkins-pipeline-experiments"
-            ]
-          ]
-        ])
+        checkout scm
       }
 
       GIT_LOG = sh(returnStdout: true, script: "git log -n 1").trim()
