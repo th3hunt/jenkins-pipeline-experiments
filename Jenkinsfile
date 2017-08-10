@@ -42,7 +42,7 @@ node(label: 'test') {
       GIT_LOG = sh(returnStdout: true, script: "git log -n 1").trim()
       GIT_LOCAL_BRANCH = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
 
-      stage('Run Tests') {
+      stage([name: 'Run Tests', concurrency: 1]) {
         sh "./test.sh ${params.TEST_PARAM}"
       }
 
