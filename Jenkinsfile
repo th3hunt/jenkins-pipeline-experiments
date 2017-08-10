@@ -20,8 +20,9 @@ node(label: 'test') {
             [name: "*/tags/*"]
           ],
           extensions: [
-            [$class: "CloneOption", honorRefspec: true, noTags: false, shallow: true,  depth: 20, timeout: 20],
-            [$class: 'LocalBranch', localBranch: '**']
+            [$class: "CloneOption", honorRefspec: true, noTags: false, shallow: true,  depth: 3, timeout: 20],
+            [$class: 'LocalBranch', localBranch: '**'],
+            [$class: 'CleanBeforeCheckout']
           ],
           submoduleCfg: [],
           userRemoteConfigs: [
