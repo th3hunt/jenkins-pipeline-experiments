@@ -8,7 +8,7 @@ node(label: 'test') {
 
   ansiColor('xterm') {
     try {
-      echo "B on master"
+      echo "C on master"
 
       stage('Checkout') {
         checkout scm
