@@ -8,7 +8,7 @@ node(label: 'test') {
 
   ansiColor('xterm') {
     try {
-      echo "Before ${env.GIT_COMMIT}"
+      echo "A on develop"
 
       stage('Checkout') {
         checkout([
@@ -35,8 +35,6 @@ node(label: 'test') {
           ]
         ])
       }
-
-      echo "After ${env.GIT_COMMIT}"
 
       GIT_LOG = sh(returnStdout: true, script: "git log -n 1").trim()
       GIT_LOCAL_BRANCH = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
