@@ -8,7 +8,7 @@ node(label: 'test') {
 
   ansiColor('xterm') {
     try {
-      echo "Before ${env.GIT_COMMIT}"
+      echo "A on master"
 
       stage('Checkout') {
         checkout([
