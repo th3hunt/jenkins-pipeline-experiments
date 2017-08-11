@@ -14,6 +14,12 @@ node(label: 'test') {
         checkout scm
       }
 
+      echo "--------------"
+      echo "${BRANCH_NAME}"
+      echo "${env.GIT_BRANCH}"
+      echo "${env.GIT_COMMIT}"
+      echo "--------------"
+      
       GIT_LOG = sh(returnStdout: true, script: "git log -n 1").trim()
       GIT_LOCAL_BRANCH = sh(returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
 
